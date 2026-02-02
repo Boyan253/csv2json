@@ -27,3 +27,10 @@ def test_convert_without_infer_keeps_strings(tmp_path):
     p = tmp_path / "in.csv"
     p.write_text("n\n1\n", encoding="utf-8")
     assert list(csv2json.convert(str(p))) == [{"n": "1"}]
+
+
+def test_semicolon_delimiter(tmp_path):
+    p = tmp_path / "in.csv"
+    p.write_text("a;b\n1;2\n", encoding="utf-8")
+    rows = list(csv2json.convert(str(p), delimiter=";", do_infer=True))
+    assert rows == [{"a": 1, "b": 2}]
