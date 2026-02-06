@@ -16,3 +16,13 @@ git clone https://github.com/USER/csv2json
 cd csv2json
 python csv2json.py --help
 ```
+
+## Usage
+
+```
+python csv2json.py data.csv                # JSON array of objects
+python csv2json.py data.csv --lines        # JSONL, one object per line
+python csv2json.py data.csv --infer        # parse numbers/booleans/empties
+python csv2json.py data.tsv -d $'\t'       # tab separated
+cat data.csv | python csv2json.py -        # read from stdin
+```
