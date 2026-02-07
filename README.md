@@ -26,3 +26,19 @@ python csv2json.py data.csv --infer        # parse numbers/booleans/empties
 python csv2json.py data.tsv -d $'\t'       # tab separated
 cat data.csv | python csv2json.py -        # read from stdin
 ```
+
+## Type inference
+
+`--infer` is off by default because CSV is all strings and guessing can bite.
+When it is on:
+
+| CSV cell        | JSON value |
+|-----------------|------------|
+| `42`            | `42`       |
+| `3.5`           | `3.5`      |
+| `true` / `FALSE`| `true` / `false` |
+| `` (empty)      | `null`     |
+| `null` / `none` | `null`     |
+| anything else   | string     |
+
+Leading zeros stay strings, so zip codes and IDs survive.
