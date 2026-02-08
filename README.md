@@ -42,3 +42,10 @@ When it is on:
 | anything else   | string     |
 
 Leading zeros stay strings, so zip codes and IDs survive.
+
+## Tests
+
+```
+pip install pytest
+pytest
+```
