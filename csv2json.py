@@ -6,6 +6,8 @@ import csv
 import json
 import sys
 
+__version__ = "0.1.0"
+
 
 def infer(value):
     """Turn a CSV string into an int/float/bool/None when it clearly is one."""
@@ -46,6 +48,8 @@ def convert(path, delimiter=",", encoding="utf-8", do_infer=False):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--version", action="version",
+                    version="%(prog)s " + __version__)
     ap.add_argument("csv_file", help="path to the CSV file, or - for stdin")
     ap.add_argument("-d", "--delimiter", default=",", help="field delimiter (default ,)")
     ap.add_argument("-e", "--encoding", default="utf-8", help="input encoding")
