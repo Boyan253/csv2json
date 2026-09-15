@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csv2json"
+version = "0.1.0"
+description = "Convert CSV to JSON or JSONL on the command line, with optional type inference."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/Boyan253/csv2json"
+
+[project.scripts]
+csv2json = "csv2json:main"
+
+[tool.setuptools]
+py-modules = ["csv2json"]
